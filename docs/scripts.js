@@ -1,4 +1,88 @@
+
 document.addEventListener('DOMContentLoaded', () => {
+  function createUI() {
+  const body = document.body;
+  body.classList.add("sidebar-collapsed");
+
+  const banner = document.createElement('div');
+  banner.id = 'banner';
+  body.appendChild(banner);
+
+  const starButtons = document.createElement('div');
+  starButtons.id = 'star-buttons';
+  const githubRepo = document.querySelector('meta[name="github-repo"]').content;
+  starButtons.innerHTML = `
+    <div id="star-button-light">
+      <a class="github-button" href="https://github.com/${githubRepo}"
+              data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" data-show-count="true"
+        aria-label="GitHub">GitHub</a>
+    </div>
+    <div id="star-button-dark">
+      <a class="github-button" href="https://github.com/${githubRepo}"
+              data-color-scheme="no-preference: dark_dimmed; light: dark_dimmed; dark: dark_dimmed;" data-size="large"
+        data-show-count="true" aria-label="GitHub">GitHub</a>
+    </div>
+  `;
+  body.appendChild(starButtons);
+
+  const sidebarToggle = document.createElement('button');
+  sidebarToggle.id = 'sidebar-toggle';
+  sidebarToggle.innerHTML = '&#9776;';
+  body.appendChild(sidebarToggle);
+
+  const homeButton = document.createElement('button');
+  homeButton.id = 'home-button';
+  homeButton.innerHTML = '&#8962;';
+  body.appendChild(homeButton);
+
+  const mainLayout = document.createElement('div');
+  mainLayout.id = 'main-layout';
+  mainLayout.innerHTML = `
+    <aside id="sidebar">
+      <div class="sidebar-top-buttons">
+        <button id="theme-toggle" class="sidebar-button">
+          <img id="theme-icon-light" src="img/sun.svg" alt="Light Mode" style="display: none;">
+          <img id="theme-icon-dark" src="img/moon.svg" alt="Dark Mode" style="display: none;">
+        </button>
+        <button id="language-toggle" class="sidebar-button">
+          <span id="lang-en">EN</span> / <span id="lang-pt">PT</span>
+        </button>
+      </div>
+      <div id="table-of-contents"></div>
+    </aside>
+    <main id="main-content">
+      <div id="content"></div>
+    </main>
+  `;
+  body.appendChild(mainLayout);
+
+  const gtagId = document.querySelector('meta[name="google-gtag"]').content;
+  const gtagScript1 = document.createElement('script');
+  gtagScript1.async = true;
+  gtagScript1.src = `https://www.googletagmanager.com/gtag/js?id=${gtagId}`;
+  document.head.appendChild(gtagScript1);
+
+  const gtagScript2 = document.createElement('script');
+  gtagScript2.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '${gtagId}');
+  `;
+  document.head.appendChild(gtagScript2);
+
+  const githubButtonsScript = document.createElement('script');
+  githubButtonsScript.async = true;
+  githubButtonsScript.defer = true;
+  githubButtonsScript.src = 'https://buttons.github.io/buttons.js';
+  document.head.appendChild(githubButtonsScript);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  createUI();
+
   const fetchAndRender = (lang) => {
     let file = 'index.md';
     if (lang === 'pt') {
@@ -250,4 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mainContent.classList.remove('scrolled');
     }
   });
+
+  
+});
 });

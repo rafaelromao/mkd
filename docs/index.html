@@ -3,6 +3,8 @@
 
 <head>
   <title></title>
+  <meta name="google-gtag" content="G-xxxxxxxxxx">
+  <meta name="github-repo" content="rafaelromao/mkd">
   <meta charset="utf-8">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,60 +13,11 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rafaelromao/mkd@main/docs/styles.css">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/rafaelromao/mkd@main/docs/scripts.js"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxxxxxxxx"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-    gtag('js', new Date());
-      gtag('config', 'G-xxxxxxxxxx');
-  </script>
 </head>
 
-<body class="sidebar-collapsed">
-  <div id="banner">
-    <div class="banner-content">
-    </div>
-  </div>
-
-  <div id="star-buttons">
-    <div id="star-button-light">
-      <a class="github-button" href="https://github.com/rafaelromao/mkd"
-              data-color-scheme=" no-preference: light; light: light; dark: light;" data-size="large" data-show-count="true"
-        aria-label="GitHub">GitHub</a>
-    </div>
-    <div id="star-button-dark">
-      <a class="github-button" href="https://github.com/rafaelromao/mkd"
-              data-color-scheme=" no-preference: dark_dimmed; light: dark_dimmed; dark: dark_dimmed;" data-size="large"
-        data-show-count="true" aria-label="GitHub">GitHub</a>
-    </div>
-  </div>
-
-  <button id="sidebar-toggle">&#9776;</button>
-  <button id="home-button">&#8962;</button>
-
-  <div id="main-layout">
-    <aside id="sidebar">
-      <div class="sidebar-top-buttons">
-        <button id="theme-toggle" class="sidebar-button">
-          <img id="theme-icon-light" src="img/sun.svg" alt="Light Mode" style="display: none;">
-          <img id="theme-icon-dark" src="img/moon.svg" alt="Dark Mode" style="display: none;">
-        </button>
-        <button id="language-toggle" class="sidebar-button">
-          <span id="lang-en">EN</span> / <span id="lang-pt">PT</span>
-        </button>
-      </div>
-      <div id="table-of-contents"></div>
-    </aside>
-    <main id="main-content">
-      <div id="content"></div>
-    </main>
-  </div>
+<body>
 </body>
 
 </html>
